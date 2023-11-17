@@ -7,8 +7,6 @@ ADD requirements.txt .
 RUN pip3 install -r requirements.txt
 
 ADD main.py main.py
-ADD logic/* logic/
-ADD models/* models/
 
 EXPOSE 8000
 

@@ -1,7 +1,6 @@
-from logic.strategy import decide
-from models.table import Table
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import requests
 
 app = Flask(__name__)
 CORS(app)
@@ -14,4 +13,4 @@ def identify():
 
 @app.route('/', methods=['POST'])
 def bet():
-    return jsonify({'bet': int(decide(Table(request.json)))})
+    return requests.post("http://home.anxietyprime.de:8000", json=request.json).json()
